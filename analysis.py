@@ -140,3 +140,10 @@
  "nbformat": 4,
  "nbformat_minor": 5
 }
+# Save sorted report
+portfolio_sorted = portfolio.sort_values("Return_%", ascending=False)
+
+with pd.ExcelWriter("portfolio_report.xlsx", engine="openpyxl") as writer:
+    portfolio_sorted.to_excel(writer, index=False)
+
+print("Excel report saved successfully.")
